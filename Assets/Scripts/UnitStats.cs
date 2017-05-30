@@ -5,20 +5,25 @@ using System.Collections;
 
 public class UnitStats : MonoBehaviour, IComparable {
 
-	[SerializeField]
-	private Animator animator;
+    [SerializeField]
+    private Animator animator;
 
-	[SerializeField]
-	private GameObject damageTextPrefab;
-	[SerializeField]
-	private Vector2 damageTextPosition;
+    [SerializeField]
+    private GameObject damageTextPrefab;
+    [SerializeField]
+    private Vector2 damageTextPosition;
 
-	public float health;
+    public float maxHP;
+    public float health;
 	public float mana;
 	public float attack;
 	public float magic;
 	public float defense;
 	public float speed;
+
+    public float LP;
+
+    public float SP;
 
 	public int nextActTurn;
 
@@ -30,7 +35,12 @@ public class UnitStats : MonoBehaviour, IComparable {
 		
 	}
 
-	public void receiveDamage(float damage) {
+    void Update()
+    {
+        //Makes it so that current health can never go above MaxHP
+        health = Mathf.Clamp(health, 0, maxHP);
+    }
+    public void receiveDamage(float damage) {
 		this.health -= damage;
 		animator.Play ("Hit");
 

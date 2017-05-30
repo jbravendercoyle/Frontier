@@ -1,26 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public abstract class ShowUnitStat : MonoBehaviour {
 
 	[SerializeField]
 	protected GameObject unit;
 
-	[SerializeField]
-	private float maxValue;
-
-	private Vector2 initialScale;
+    Text healthvaluetext;
 
 	void Start() {
-		this.initialScale = this.gameObject.transform.localScale;
-	}
+        
+    }
 
 	void Update() {
 		if (this.unit) {
-			float newValue = this.newStatValue ();
-			float newScale = (this.initialScale.x * newValue) / this.maxValue;
-			this.gameObject.transform.localScale = new Vector2(newScale, this.initialScale.y);
-		}
+            float newValue = this.newStatValue();
+            float maxValue = this.maxStatValue();
+            this.gameObject.GetComponent<Text>().text = newValue.ToString("N0") + "/" + maxValue;
+        }
 	}
 
 	public void changeUnit(GameObject newUnit) {
@@ -28,4 +26,5 @@ public abstract class ShowUnitStat : MonoBehaviour {
 	}
 
 	abstract protected float newStatValue();
+    abstract protected float maxStatValue();
 }
