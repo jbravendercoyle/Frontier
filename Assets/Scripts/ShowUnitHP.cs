@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShowUnitHealth : ShowUnitStat {
+public class ShowUnitHP : ShowUnitStat {
 
 	override protected float newStatValue() {
-		return unit.GetComponent<UnitStats> ().health;
+		return unit.GetComponent<UnitStats> ().HP;
 	}
 
     override protected float maxStatValue()

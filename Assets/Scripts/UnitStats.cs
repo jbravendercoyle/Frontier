@@ -14,16 +14,16 @@ public class UnitStats : MonoBehaviour, IComparable {
     private Vector2 damageTextPosition;
 
     public float maxHP;
-    public float health;
-	public float mana;
+    public float HP;
+    public float maxLP;
+    public float LP;
+    public float maxSP;
+    public float SP;
+
 	public float attack;
 	public float magic;
 	public float defense;
-	public float speed;
-
-    public float LP;
-
-    public float SP;
+	public float speed;  
 
 	public int nextActTurn;
 
@@ -37,11 +37,13 @@ public class UnitStats : MonoBehaviour, IComparable {
 
     void Update()
     {
-        //Makes it so that current health can never go above MaxHP
-        health = Mathf.Clamp(health, 0, maxHP);
+        //Makes it so that current health, lp and sp cannot go above their max values
+        HP = Mathf.Clamp(HP, 0, maxHP);
+        LP = Mathf.Clamp(LP, 0, maxLP);
+        SP = Mathf.Clamp(SP, 0, maxSP);
     }
     public void receiveDamage(float damage) {
-		this.health -= damage;
+		this.HP -= damage;
 		animator.Play ("Hit");
 
 		GameObject HUDCanvas = GameObject.Find ("HUDCanvas");
@@ -50,11 +52,18 @@ public class UnitStats : MonoBehaviour, IComparable {
 		damageText.transform.localPosition = this.damageTextPosition;
 		damageText.transform.localScale = new Vector2 (1.0f, 1.0f);
 
-		if (this.health <= 0) {
+		if (this.HP <= 0) {
 			this.dead = true;
 			this.gameObject.tag = "DeadUnit";
 			Destroy (this.gameObject);
 		}
+
+        if (this.LP <=0)
+        {
+            this.dead = true;
+            this.gameObject.tag = "DeadUnit";
+            Destroy(this.gameObject);
+        }
 	}
 
 	public void calculateNextActTurn(int currentTurn) {
