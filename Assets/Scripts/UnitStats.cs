@@ -10,15 +10,18 @@ public class UnitStats : MonoBehaviour, IComparable {
 
     [SerializeField]
     private GameObject damageTextPrefab;
+
     [SerializeField]
     private Vector2 damageTextPosition;
 
-    public float maxHP;
-    public float HP;
-    public float maxLP;
-    public float LP;
-    public float maxSP;
-    public float SP;
+    
+       public float maxHP;
+        public float HP;
+        public float maxLP;
+        public float LP;
+        public float maxSP;
+        public float SP;
+    
 
 	public float attack;
 	public float magic;
