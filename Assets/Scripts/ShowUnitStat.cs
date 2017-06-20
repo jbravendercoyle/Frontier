@@ -21,6 +21,7 @@ public abstract class ShowUnitStat : MonoBehaviour {
         }
 	}
 
+    //Removed 'change unit' function as all party members hp will always be shown on screen
 	public void changeUnit(GameObject newUnit) {
 		this.unit = newUnit;
 	}
