@@ -34,13 +34,14 @@ public class PlayerUnitAction : MonoBehaviour {
 	}
 
 	public void updateHUD() {
-		GameObject playerUnitFace = GameObject.Find ("PlayerUnitFace") as GameObject;
-		playerUnitFace.GetComponent<Image> ().sprite = this.faceSprite;
+        //REPLACE PLAYER UNIT FACE WITH SELECTED CHARACTER FRAME RAISED/COLOURED HERE
+        //GameObject playerUnitFace = GameObject.Find ("PlayerUnitFace") as GameObject;
+		//playerUnitFace.GetComponent<Image> ().sprite = this.faceSprite;
 
 		GameObject playerUnitHealthBar = GameObject.Find ("PlayerUnitHealthBar") as GameObject;
 		playerUnitHealthBar.GetComponent<ShowUnitHP> ().changeUnit (this.gameObject);
 
 		GameObject playerUnitManaBar = GameObject.Find ("PlayerUnitManaBar") as GameObject;
-		playerUnitManaBar.GetComponent<ShowUnitLP> ().changeUnit (this.gameObject);
+		playerUnitManaBar.GetComponent<ShowUnitMP> ().changeUnit (this.gameObject);
 	}
 }

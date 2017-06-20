@@ -9,10 +9,10 @@ public class AttackTarget : MonoBehaviour {
 	private string attackAnimation;
 
 	[SerializeField]
-	private bool SPAttack;
+	private bool MPAttack;
 
 	[SerializeField]
-	private float SPCost;
+	private float MPCost;
 
 	[SerializeField]
 	private float minAttackMultiplier;
@@ -29,9 +29,9 @@ public class AttackTarget : MonoBehaviour {
 	public void hit(GameObject target) {
 		UnitStats ownerStats = this.owner.GetComponent<UnitStats> ();
 		UnitStats targetStats = target.GetComponent<UnitStats> ();
-		if (ownerStats.SP >= this.SPCost) {
+		if (ownerStats.MP >= this.MPCost) {
 			float attackMultiplier = (Random.value * (this.maxAttackMultiplier - this.minAttackMultiplier)) + this.minAttackMultiplier;
-			float damage = (this.SPAttack) ? attackMultiplier * ownerStats.magic : attackMultiplier * ownerStats.attack;
+			float damage = (this.MPAttack) ? attackMultiplier * ownerStats.magic : attackMultiplier * ownerStats.attack;
 
 			float defenseMultiplier = (Random.value * (this.maxDefenseMultiplier - this.minDefenseMultiplier)) + this.minDefenseMultiplier;
 			damage = Mathf.Max(0, damage - (defenseMultiplier * targetStats.defense));
@@ -40,7 +40,7 @@ public class AttackTarget : MonoBehaviour {
 
 			targetStats.receiveDamage (damage);
 
-			ownerStats.SP -= this.SPCost;
+			ownerStats.MP -= this.MPCost;
 		}
 	}
 }

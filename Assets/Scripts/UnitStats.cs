@@ -16,11 +16,9 @@ public class UnitStats : MonoBehaviour, IComparable {
 
     
        public float maxHP;
-        public float HP;
-        public float maxLP;
-        public float LP;
-        public float maxSP;
-        public float SP;
+       public float HP;
+       public float maxMP;
+       public float MP;
     
 
 	public float attack;
@@ -40,10 +38,9 @@ public class UnitStats : MonoBehaviour, IComparable {
 
     void Update()
     {
-        //Makes it so that current health, lp and sp cannot go above their max values
+        //Makes it so that current health and mp cannot go above their max values
         HP = Mathf.Clamp(HP, 0, maxHP);
-        LP = Mathf.Clamp(LP, 0, maxLP);
-        SP = Mathf.Clamp(SP, 0, maxSP);
+        MP = Mathf.Clamp(MP, 0, maxMP);
     }
     public void receiveDamage(float damage) {
 		this.HP -= damage;
@@ -60,13 +57,6 @@ public class UnitStats : MonoBehaviour, IComparable {
 			this.gameObject.tag = "DeadUnit";
 			Destroy (this.gameObject);
 		}
-
-        if (this.LP <=0)
-        {
-            this.dead = true;
-            this.gameObject.tag = "DeadUnit";
-            Destroy(this.gameObject);
-        }
 	}
 
 	public void calculateNextActTurn(int currentTurn) {
