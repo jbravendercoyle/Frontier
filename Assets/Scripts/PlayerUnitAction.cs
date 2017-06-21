@@ -17,13 +17,12 @@ public class PlayerUnitAction : MonoBehaviour
     private GameObject _instance;
 
     [SerializeField]
-    private string unitName;
+    public string unitName;
 
     private GameObject currentAttack;
 
     GameObject playerUnitInformationHUD;
 
-    int getFrameExists;
 
     void Awake()
     {
@@ -49,18 +48,17 @@ public class PlayerUnitAction : MonoBehaviour
         this.currentAttack.GetComponent<AttackTarget>().hit(target);
     }
 
-    public void updateHUD()
+
+    public void createFrames()
     {
-        int getFrameExists = SetFrameExists.frameExists; 
 
-        if (getFrameExists == 0)
-        {
             playerUnitInformationHUD = GameObject.Find("PlayerUnitInformation");
-            _instance = Instantiate(this.Frame, this.transform) as GameObject;
+        for (int i = 0; i < 1; i++)
+        {
+            _instance = Instantiate(this.Frame, new Vector3(i * 50.0F, 0, 0), Quaternion.identity);
             _instance.transform.parent = playerUnitInformationHUD.transform;
-            getFrameExists = 1;
         }
-
+  
         //Unit Frame Information
         GameObject playerUnitName = _instance.transform.Find("PlayerUnitName").gameObject;
         playerUnitName.GetComponent<Text>().text = this.unitName;
@@ -70,11 +68,13 @@ public class PlayerUnitAction : MonoBehaviour
 
         GameObject playerUnitManaBar = _instance.transform.Find("PlayerUnitManaBar").gameObject;
         playerUnitManaBar.GetComponent<ShowUnitMP>().changeUnit(this.gameObject);
+    }
 
+    public void updateHUD()
+    {
         //Changes colour of current unit frame
-        GameObject CurrentUnitFrame = _instance;
+        GameObject CurrentUnitFrame = this._instance;
         CurrentUnitFrame.GetComponent<Image>().color = new Color(0.2F, 0.3F, 0.4F);
-
     }
 
 }

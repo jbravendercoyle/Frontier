@@ -2,45 +2,45 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class SelectUnit : MonoBehaviour {
+public class SelectUnit : MonoBehaviour
+{
 
-private GameObject currentUnit;
+    public static bool onetime = false;
 
-private GameObject actionsMenu, enemyUnitsMenu;
+    private GameObject currentUnit;
 
-//private GameObject unitForFrameSetup;
+    public GameObject[] allUnits;
+
+    private GameObject actionsMenu, enemyUnitsMenu;
 
 
-    void Awake() {
-		SceneManager.sceneLoaded += OnSceneLoaded;
-	}
+
+    void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+    }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Battle")
         {
+
             this.actionsMenu = GameObject.Find("ActionsMenu");
             this.enemyUnitsMenu = GameObject.Find("EnemyUnitsMenu");
 
         }
     }
 
-    //trying to set up frames, delete if not working
-    //private void frameSetup(GameObject unitForFrameSetup)
-    //{
-        //might stuff up enemy encounter
-    //    this.unitForFrameSetup = GameObject.FindGameObjectWithTag("PlayerUnit");
-    //    this.unitForFrameSetup.GetComponent<PlayerUnitAction>().frameSetup();
-    //}
 
+    public void selectCurrentUnit(GameObject unit)
+    {
+        this.currentUnit = unit;
 
-    public void selectCurrentUnit(GameObject unit) {
-            this.currentUnit = unit;
+        this.actionsMenu.SetActive(true);
 
-            this.actionsMenu.SetActive(true);           
-
-            this.currentUnit.GetComponent<PlayerUnitAction>().updateHUD();
-        }
+        this.currentUnit.GetComponent<PlayerUnitAction>().updateHUD();
+    }
 
     public void selectAttack(bool physical)
     {
@@ -56,6 +56,32 @@ private GameObject actionsMenu, enemyUnitsMenu;
         this.enemyUnitsMenu.SetActive(false);
 
         this.currentUnit.GetComponent<PlayerUnitAction>().act(target);
+
     }
 
+
+
+    void Update()
+        
+    {
+        allUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
+        if (!onetime)
+        {
+            CreateFrames();
+            onetime = true;
+        }
+    }
+
+    void CreateFrames()
+   {
+        foreach (GameObject unit in allUnits)
+        {
+            unit.GetComponent<PlayerUnitAction>().createFrames();
+        }
+    }
+
+    private void OnDisable()
+    {
+        onetime = false;
+    }
 }
