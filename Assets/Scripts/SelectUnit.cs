@@ -7,6 +7,8 @@ public class SelectUnit : MonoBehaviour
 
     public static bool onetime = false;
 
+    public static int frameSpacer;
+
     private GameObject currentUnit;
 
     public GameObject[] allUnits;
@@ -69,15 +71,19 @@ public class SelectUnit : MonoBehaviour
         {
             CreateFrames();
             onetime = true;
-        }
+        } 
+
     }
 
     void CreateFrames()
    {
+        frameSpacer = 0;
         foreach (GameObject unit in allUnits)
         {
+            
             unit.GetComponent<PlayerUnitAction>().createFrames();
-        }
+            frameSpacer += 1;
+        }       
     }
 
     private void OnDisable()

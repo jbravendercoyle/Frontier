@@ -4,7 +4,8 @@ using System.Collections;
 
 public class StartBattle : MonoBehaviour
 {
-
+    //declaring this public may make me able to access this when it is inactive
+    public static StartBattle SB;
 
     // Use this for initialization
     void Start()
@@ -15,6 +16,19 @@ public class StartBattle : MonoBehaviour
 
         this.gameObject.SetActive(false);
     }
+
+    
+    //may have to scratch this
+    public void HereWeGo()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    public void Shutdown()
+    {
+        this.gameObject.SetActive(false);
+    }
+
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -28,4 +42,6 @@ public class StartBattle : MonoBehaviour
             this.gameObject.SetActive(scene.name == "Battle");
         }
     }
+
+
 }
