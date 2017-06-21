@@ -7,6 +7,8 @@ public class SelectUnit : MonoBehaviour
 
     public static bool onetime = false;
 
+    public bool HUDneedsflashing = false;
+
     public static int frameSpacer;
 
     public GameObject currentUnit;
@@ -15,7 +17,6 @@ public class SelectUnit : MonoBehaviour
 
     private GameObject actionsMenu, enemyUnitsMenu;
 
-    private IEnumerator coroutine;
 
     void Awake()
     {
@@ -37,14 +38,16 @@ public class SelectUnit : MonoBehaviour
 
     public void selectCurrentUnit(GameObject unit)
     {
+        if (HUDneedsflashing == false)
+        {
+            this.currentUnit = unit;
 
-        this.currentUnit = unit;
+            this.actionsMenu.SetActive(true);
 
-        this.actionsMenu.SetActive(true);
+            this.currentUnit.GetComponent<PlayerUnitAction>().updateHUD();
 
-        this.currentUnit.GetComponent<PlayerUnitAction>().updateHUD();
-
-        
+            HUDneedsflashing = true;
+        }
     } 
 
 
@@ -75,7 +78,10 @@ public class SelectUnit : MonoBehaviour
             CreateFrames();
             onetime = true;
         }
-
+        if (HUDneedsflashing == true)
+            {
+            flashHUD();
+        }
     }
 
     void CreateFrames()
@@ -86,9 +92,21 @@ public class SelectUnit : MonoBehaviour
 
             unit.GetComponent<PlayerUnitAction>().createFrames();
             frameSpacer += 1;
-        } 
-
+        }
     }
+
+        void flashHUD()
+        {
+        foreach (GameObject unit in allUnits)
+        {
+            if (unit != currentUnit)
+            {
+                unit.GetComponent<PlayerUnitAction>().resetHUD();
+                HUDneedsflashing = false;
+            }
+        }
+        }
+
 
 
 
