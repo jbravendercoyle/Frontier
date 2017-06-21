@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +20,7 @@ public class PlayerUnitAction : MonoBehaviour
     [SerializeField]
     public string unitName;
 
-    int frameSpacer;
+    int frameSpacer;  
 
     private GameObject currentAttack;
 
@@ -83,21 +84,31 @@ public class PlayerUnitAction : MonoBehaviour
 
         //hopefully, set default colour for frame
         GameObject CurrentUnitFrame = this._instance;
-        CurrentUnitFrame.GetComponent<Image>().color = new Color(152, 134, 76, 255);
+        CurrentUnitFrame.GetComponent<Image>().color = new Color(0.2F, 0.3F, 0.4F);
 
     }
 
     public void updateHUD()
     {
+        //var pointer = new PointerEventData(EventSystem.current); //pointer event to execute
+        
+        //Changes colour of current unit frame
+        GameObject CurrentUnitFrame = this._instance;
+        CurrentUnitFrame.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+
+        //ExecuteEvents.Execute(this._instance, pointer, ExecuteEvents.pointerEnterHandler);
+        //ExecuteEvents.Execute(this._instance, pointer, ExecuteEvents.pointerDownHandler);
+
+    }
+
+    public void resetHUD()
+    {
+        //var pointer = new PointerEventData(EventSystem.current); //pointer event to execute
+        Debug.Log("I exist");
         //Changes colour of current unit frame
         GameObject CurrentUnitFrame = this._instance;
         CurrentUnitFrame.GetComponent<Image>().color = new Color(0.2F, 0.3F, 0.4F);
-    }
-
-    public void returnColor()
-    {
-        //hopefully, set default colour for frame
-        GameObject CurrentUnitFrame = this._instance;
-        CurrentUnitFrame.GetComponent<Image>().color = new Color(152, 134, 76, 255);
+        //ExecuteEvents.Execute(this._instance, pointer, ExecuteEvents.pointerUpHandler);
+        //ExecuteEvents.Execute(this._instance, pointer, ExecuteEvents.pointerExitHandler);
     }
 }

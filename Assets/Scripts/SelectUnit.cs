@@ -9,13 +9,13 @@ public class SelectUnit : MonoBehaviour
 
     public static int frameSpacer;
 
-    private GameObject currentUnit;
+    public GameObject currentUnit;
 
     public GameObject[] allUnits;
 
     private GameObject actionsMenu, enemyUnitsMenu;
 
-
+    private IEnumerator coroutine;
 
     void Awake()
     {
@@ -37,12 +37,17 @@ public class SelectUnit : MonoBehaviour
 
     public void selectCurrentUnit(GameObject unit)
     {
+
         this.currentUnit = unit;
 
         this.actionsMenu.SetActive(true);
 
         this.currentUnit.GetComponent<PlayerUnitAction>().updateHUD();
-    }
+
+        
+    } 
+
+
 
     public void selectAttack(bool physical)
     {
@@ -61,33 +66,36 @@ public class SelectUnit : MonoBehaviour
 
     }
 
-
-
     void Update()
-        
+
     {
         allUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
         if (!onetime)
         {
             CreateFrames();
             onetime = true;
-        } 
+        }
 
     }
 
     void CreateFrames()
-   {
+    {
         frameSpacer = 0;
         foreach (GameObject unit in allUnits)
         {
-            
+
             unit.GetComponent<PlayerUnitAction>().createFrames();
             frameSpacer += 1;
-        }       
+        } 
+
     }
+
+
+
 
     private void OnDisable()
     {
         onetime = false;
     }
+
 }
