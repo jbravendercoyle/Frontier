@@ -4,6 +4,8 @@ using System.Collections;
 
 public class StartBattle : MonoBehaviour {
 
+
+
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad (this.gameObject);
@@ -19,7 +21,7 @@ public class StartBattle : MonoBehaviour {
 			Destroy (this.gameObject);
 		} else {
 			this.gameObject.SetActive(scene.name == "Battle");
-		}
+        }
 	}
 
 }

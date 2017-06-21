@@ -8,6 +8,8 @@ private GameObject currentUnit;
 
 private GameObject actionsMenu, enemyUnitsMenu;
 
+//private GameObject unitForFrameSetup;
+
 
     void Awake() {
 		SceneManager.sceneLoaded += OnSceneLoaded;
@@ -19,10 +21,20 @@ private GameObject actionsMenu, enemyUnitsMenu;
         {
             this.actionsMenu = GameObject.Find("ActionsMenu");
             this.enemyUnitsMenu = GameObject.Find("EnemyUnitsMenu");
+
         }
     }
 
-        public void selectCurrentUnit(GameObject unit) {
+    //trying to set up frames, delete if not working
+    //private void frameSetup(GameObject unitForFrameSetup)
+    //{
+        //might stuff up enemy encounter
+    //    this.unitForFrameSetup = GameObject.FindGameObjectWithTag("PlayerUnit");
+    //    this.unitForFrameSetup.GetComponent<PlayerUnitAction>().frameSetup();
+    //}
+
+
+    public void selectCurrentUnit(GameObject unit) {
             this.currentUnit = unit;
 
             this.actionsMenu.SetActive(true);           

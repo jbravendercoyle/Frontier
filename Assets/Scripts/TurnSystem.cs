@@ -14,7 +14,7 @@ public class TurnSystem : MonoBehaviour {
 	[SerializeField]
 	private GameObject actionsMenu, enemyUnitsMenu;
 
-	void Start() {
+    void Start() {
 		this.playerParty = GameObject.Find ("PlayerParty");
 
 		unitsStats = new List<UnitStats> ();
