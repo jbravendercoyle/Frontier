@@ -19,6 +19,7 @@ public class UnitStats : MonoBehaviour, IComparable {
        public float HP;
        public float maxMP;
        public float MP;
+       
     
 
 	public float attack;
@@ -30,10 +31,13 @@ public class UnitStats : MonoBehaviour, IComparable {
 
 	private bool dead = false;
 
-	private float currentExperience;
+    private bool needToLevel;
+    public float level;
+    public float currentExperience;
 
 	void Start() {
-		
+        level = 1;
+        needToLevel = false;
 	}
 
     void Update()
@@ -41,7 +45,12 @@ public class UnitStats : MonoBehaviour, IComparable {
         //Makes it so that current health and mp cannot go above their max values
         HP = Mathf.Clamp(HP, 0, maxHP);
         MP = Mathf.Clamp(MP, 0, maxMP);
+
+        levelUP();
     }
+
+
+
     public void receiveDamage(float damage) {
 		this.HP -= damage;
 		animator.Play ("Hit");
@@ -52,9 +61,9 @@ public class UnitStats : MonoBehaviour, IComparable {
 		damageText.GetComponent<Text> ().text = "" + damage;
 		damageText.transform.localPosition = this.damageTextPosition;
 		damageText.transform.localScale = new Vector2 (1.0f, 1.0f);
-        
+     
 
-		if (this.HP <= 0) {
+        if (this.HP <= 0) {
 			this.dead = true;
 			this.gameObject.tag = "DeadUnit";
 			Destroy (this.gameObject);
@@ -73,6 +82,17 @@ public class UnitStats : MonoBehaviour, IComparable {
 		return this.dead;
 	}
 
+    public void levelUP()
+    {
+        if (currentExperience >= 0 && currentExperience <= 100 && level != 1)
+        {
+            level = 1;
+        }
+        else if (currentExperience >= 101 && currentExperience <= 500 && level != 2)
+        {
+            level = 2;
+        }
+}
 	public void receiveExperience(float experience) {
 		this.currentExperience += experience;
 	}
