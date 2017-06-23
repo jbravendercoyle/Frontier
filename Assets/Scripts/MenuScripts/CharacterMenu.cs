@@ -7,32 +7,29 @@ public class CharacterMenu : MonoBehaviour {
 
     public GameObject HUDCanvas;
 
-    StartBattle SB;
+    public static bool MenuOpened;
 
-	// Use this for initialization
-	void Awake () {
+    public GameObject PlayerParty;
 
-    }
 
-    //void Start()
-    //{
-    //    
-    //}
-
-    // Update is called once per frame
     void Update () {
 
 
         if (Input.GetButton("Menu"))
+        {
             this.HUDCanvas.SetActive(true);
-        //{
-          //  StartBattle.SB.HereWeGo();
-        //}
+            MenuOpened = true;
+            PlayerController component = this.gameObject.GetComponent<PlayerController>();
+            component.enabled = false;            
+
+        }
 
         if (Input.GetButton("Cancel"))
+        {
             this.HUDCanvas.SetActive(false);
-        //{
-        //    StartBattle.SB.Shutdown();
-        //}
+            MenuOpened = false;
+            PlayerController component = this.gameObject.GetComponent<PlayerController>();
+            component.enabled = true;
+        }
     }
 }

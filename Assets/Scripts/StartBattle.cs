@@ -4,31 +4,21 @@ using System.Collections;
 
 public class StartBattle : MonoBehaviour
 {
+    public static GameObject PartyManager;
+
     //declaring this public may make me able to access this when it is inactive
-    public static StartBattle SB;
 
     // Use this for initialization
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        PartyManager = this.gameObject;
 
+        SceneManager.sceneLoaded += OnSceneLoaded;        
+        
         this.gameObject.SetActive(false);
     }
-
-    
-    //may have to scratch this
-    public void HereWeGo()
-    {
-        this.gameObject.SetActive(true);
-    }
-
-    public void Shutdown()
-    {
-        this.gameObject.SetActive(false);
-    }
-
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -37,11 +27,10 @@ public class StartBattle : MonoBehaviour
             SceneManager.sceneLoaded -= OnSceneLoaded;
             Destroy(this.gameObject);
         }
+
         else
         {
             this.gameObject.SetActive(scene.name == "Battle");
         }
-    }
-
-
+    } 
 }
