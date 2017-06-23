@@ -10,6 +10,11 @@ public class CreateEnemyMenuItems : MonoBehaviour {
 	[SerializeField]
 	private KillEnemy killEnemyScript;
 
+    [SerializeField]
+    private Vector2 initialPosition;
+
+    private Vector2 tooltipLocation;
+
 	// Use this for initialization
 	void Awake () {
 		GameObject enemyUnitsMenu = GameObject.Find ("EnemyUnitsMenu");
@@ -18,12 +23,13 @@ public class CreateEnemyMenuItems : MonoBehaviour {
 
 		GameObject targetEnemyUnit = Instantiate (this.targetEnemyUnitPrefab, enemyUnitsMenu.transform) as GameObject;
 		targetEnemyUnit.name = "Target" + this.gameObject.name;
-
-        foreach (GameObject item in existingItems)
-        {
-            //position of tooltip
-            targetEnemyUnit.transform.localPosition = new Vector2(this.gameObject.transform.localPosition.x, this.gameObject.transform.localPosition.y);
-        }
+        tooltipLocation = new Vector2(this.initialPosition.x, this.initialPosition.y);
+        targetEnemyUnit.transform.localPosition = tooltipLocation;
+        //foreach (GameObject item in existingItems)
+        //{
+            //position of tooltip           
+        //    targetEnemyUnit.transform.localPosition = tooltipLocation;
+       // }
         //scale of tooltip
         targetEnemyUnit.transform.localScale = new Vector2 (0.7f, 0.7f);
 		targetEnemyUnit.GetComponent<Button> ().onClick.AddListener (() => 
