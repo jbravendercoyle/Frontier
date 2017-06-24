@@ -8,19 +8,23 @@ public class PlayerController : MonoBehaviour
     Vector3 pos;                                // For movement
     float speed = 8.0f;                         // Speed of movement
 
+    Vector3 dir;
+    Vector3 movement;
+
     void Start()
     { 
         
         pos = transform.position;          // Take the initial position
+        dir = pos - transform.position;
+        movement = dir.normalized * speed * Time.deltaTime;
+
     }
+
 
     void Update()
     {
-        
-    }
+        CharacterController controller = GetComponent<CharacterController>();
 
-    void FixedUpdate()
-    {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         //Debug.Log("MH =" + moveHorizontal.ToString("N0"));
         float moveVertical = Input.GetAxisRaw("Vertical");
@@ -33,7 +37,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Rotating Left");
         }
         if (moveHorizontal == 1 && transform.position == pos)
-            //if (Input.GetKeyDown(KeyCode.D) && transform.position == pos)
+        //if (Input.GetKeyDown(KeyCode.D) && transform.position == pos)
         {        // Right
             transform.Rotate(0, 90, 0);
             Debug.Log("Rotating Right");
@@ -49,7 +53,8 @@ public class PlayerController : MonoBehaviour
             pos += transform.forward * -1;
 
         }
-        transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);    // Move thereW
+        if (movement.magnitude > dir.magnitude) movement = dir;
+        //transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);    // Move thereW
+        controller.Move(movement);
     }
-
 }

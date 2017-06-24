@@ -21,7 +21,7 @@ public class CharacterMenu : MonoBehaviour {
         {
             this.HUDCanvas.SetActive(true);
             MenuOpened = true;
-            PlayerController component = this.gameObject.GetComponent<PlayerController>();
+            PlayerControllerNEO component = this.gameObject.GetComponent<PlayerControllerNEO>();
             component.enabled = false;            
         }
 
@@ -29,7 +29,7 @@ public class CharacterMenu : MonoBehaviour {
         {
             this.HUDCanvas.SetActive(false);
             MenuOpened = false;
-            PlayerController component = this.gameObject.GetComponent<PlayerController>();
+            PlayerControllerNEO component = this.gameObject.GetComponent<PlayerControllerNEO>();
             component.enabled = true;
         } 
 
