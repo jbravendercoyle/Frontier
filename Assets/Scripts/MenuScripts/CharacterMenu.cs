@@ -25,7 +25,7 @@ public class CharacterMenu : MonoBehaviour {
             component.enabled = false;            
         }
 
-        if (Input.GetButton("Cancel"))
+        if (Input.GetButton("Cancel") && (MenuOpened == true))
         {
             this.HUDCanvas.SetActive(false);
             MenuOpened = false;
@@ -41,9 +41,10 @@ public class CharacterMenu : MonoBehaviour {
         this.Inventory.SetActive(true);
     } 
 
-    public void CloseItems()
+    public void Status()
     {
-        this.CharacterPanel.SetActive(true);
         this.Inventory.SetActive(false);
+        this.CharacterPanel.SetActive(true);
+                
     }
 }
