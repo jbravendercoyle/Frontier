@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 285ed6f8ae5de12409be7688798da4aa
-timeCreated: 1498396474
+timeCreated: 1498397637
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -79,12 +79,12 @@ TextureImporter:
       name: robbyatk_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 69
-        width: 77
-        height: 139
+        x: 16
+        y: 68
+        width: 80
+        height: 141
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -92,12 +92,25 @@ TextureImporter:
       name: robbyatk_1
       rect:
         serializedVersion: 2
-        x: 108
-        y: 71
-        width: 111
-        height: 138
+        x: 105
+        y: 69
+        width: 116
+        height: 139
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: robbyatk_2
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 71
+        width: 131
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -105,12 +118,12 @@ TextureImporter:
       name: robbyatk_3
       rect:
         serializedVersion: 2
-        x: 270
-        y: 72
-        width: 101
-        height: 139
+        x: 374
+        y: 74
+        width: 126
+        height: 143
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -118,25 +131,12 @@ TextureImporter:
       name: robbyatk_4
       rect:
         serializedVersion: 2
-        x: 393
-        y: 75
-        width: 105
-        height: 142
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: robbyatk_5
-      rect:
-        serializedVersion: 2
-        x: 524
+        x: 508
         y: 74
-        width: 100
-        height: 144
+        width: 118
+        height: 145
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

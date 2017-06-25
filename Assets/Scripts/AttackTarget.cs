@@ -48,6 +48,7 @@ public class AttackTarget : MonoBehaviour {
 
 			//play attack on enemy
 			_attackInstance = Instantiate(this.attackAnimator, target.gameObject.transform);
+			//_attackInstance.transform.SetParent(target.gameObject.transform);
 			_attackInstance.GetComponent<Animator> ().Play (this.attackAnimatorAnimation);
 			//Destroy(_attackInstance);
 

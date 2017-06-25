@@ -58,7 +58,7 @@ public class UnitStats : MonoBehaviour, IComparable {
 		GameObject HUDCanvas = GameObject.Find ("HUDCanvas");
 		GameObject damageText = Instantiate (this.damageTextPrefab, HUDCanvas.transform) as GameObject;
         damageText.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 5);
-		damageText.GetComponent<Text> ().text = "" + damage;
+		damageText.GetComponent<Text> ().text = "" + damage.ToString("N0");
 		damageText.transform.localPosition = this.damageTextPosition;
 		damageText.transform.localScale = new Vector2 (1.0f, 1.0f);
      
