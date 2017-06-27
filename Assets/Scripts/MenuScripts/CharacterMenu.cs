@@ -8,6 +8,7 @@ public class CharacterMenu : MonoBehaviour {
     public GameObject HUDCanvas;
     public GameObject CharacterPanel;
     public GameObject Inventory;
+	public GameObject OpenEquip;
 
     public static bool MenuOpened;
 
@@ -35,16 +36,50 @@ public class CharacterMenu : MonoBehaviour {
 
     } 
 
+
+	//Opens Items Panel, closes Inventory
     public void Items()
     {
-        this.CharacterPanel.SetActive(false);
-        this.Inventory.SetActive(true);
+		
+        Inventory.SetActive(true);
+
+		if (CharacterPanel.activeInHierarchy == true)
+		{
+			CharacterPanel.SetActive(false);
+		}
+		if (OpenEquip.activeInHierarchy == true)
+		{
+			OpenEquip.SetActive(false);
+		}		
     } 
 
+	//Opens Items, closes Character Panel
     public void Status()
     {
-        this.Inventory.SetActive(false);
-        this.CharacterPanel.SetActive(true);
+        CharacterPanel.SetActive(true);
                 
+		if (OpenEquip.activeInHierarchy == true)
+		{
+			OpenEquip.SetActive(false);
+		}
+		if (Inventory.activeInHierarchy == true)
+		{
+			Inventory.SetActive(false);
+		}		
     }
+
+	//Opens Equip, closes Character Panel and Inventory
+	public void Equip()
+	{
+		OpenEquip.SetActive (true);
+
+		if (CharacterPanel.activeInHierarchy == true)
+		{
+			CharacterPanel.SetActive(false);
+		}
+		if (Inventory.activeInHierarchy == true)
+		{
+			Inventory.SetActive(false);
+		}			
+}
 }
