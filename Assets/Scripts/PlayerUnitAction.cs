@@ -62,15 +62,20 @@ public class PlayerUnitAction : MonoBehaviour
         //determines how each frame is spaced
         if (frameSpacer == 0)
         {
-			_instance = Instantiate(this.Frame, new Vector3(-200F, -380f), Quaternion.identity);
+			_instance = Instantiate(this.Frame, new Vector3(520, 542), Quaternion.identity);
             _instance.transform.SetParent(playerUnitInformationHUD.transform, false);
         }
 
         if (frameSpacer == 1)
         {
-			_instance = Instantiate(this.Frame, new Vector3(400F, -380f), Quaternion.identity);
+			_instance = Instantiate(this.Frame, new Vector3(520, 445), Quaternion.identity);
             _instance.transform.SetParent(playerUnitInformationHUD.transform, false);
         }
+
+		if (frameSpacer == 2) { 
+			_instance = Instantiate (this.Frame, new Vector3 (520, 349), Quaternion.identity);
+			_instance.transform.SetParent (playerUnitInformationHUD.transform, false);
+		}
 
         //Unit Frame Information
         GameObject playerUnitName = _instance.transform.Find("PlayerUnitName").gameObject;
@@ -93,8 +98,9 @@ public class PlayerUnitAction : MonoBehaviour
         //var pointer = new PointerEventData(EventSystem.current); //pointer event to execute
         
         //Changes colour of current unit frame
+		Debug.Log("Updating HUD. this message sent from PlayerUnitAction");
         GameObject CurrentUnitFrame = this._instance;
-        CurrentUnitFrame.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+        //CurrentUnitFrame.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
 
         //ExecuteEvents.Execute(this._instance, pointer, ExecuteEvents.pointerEnterHandler);
         //ExecuteEvents.Execute(this._instance, pointer, ExecuteEvents.pointerDownHandler);
@@ -104,10 +110,10 @@ public class PlayerUnitAction : MonoBehaviour
     public void resetHUD()
     {
         //var pointer = new PointerEventData(EventSystem.current); //pointer event to execute
-        Debug.Log("I exist");
+        Debug.Log("Resetting HUD.");
         //Changes colour of current unit frame
-        GameObject CurrentUnitFrame = this._instance;
-        CurrentUnitFrame.GetComponent<Image>().color = new Color(0.2F, 0.3F, 0.4F);
+		GameObject CurrentUnitFrame = this._instance.gameObject;
+        //CurrentUnitFrame.GetComponent<Image>().color = new Color(0.2F, 0.3F, 0.4F);
         //ExecuteEvents.Execute(this._instance, pointer, ExecuteEvents.pointerUpHandler);
         //ExecuteEvents.Execute(this._instance, pointer, ExecuteEvents.pointerExitHandler);
     }
