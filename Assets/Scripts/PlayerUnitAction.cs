@@ -62,13 +62,13 @@ public class PlayerUnitAction : MonoBehaviour
         //determines how each frame is spaced
         if (frameSpacer == 0)
         {
-            _instance = Instantiate(this.Frame, new Vector3(-200F, -294), Quaternion.identity);
+			_instance = Instantiate(this.Frame, new Vector3(-200F, -380f), Quaternion.identity);
             _instance.transform.SetParent(playerUnitInformationHUD.transform, false);
         }
 
         if (frameSpacer == 1)
         {
-            _instance = Instantiate(this.Frame, new Vector3(400F, -294), Quaternion.identity);
+			_instance = Instantiate(this.Frame, new Vector3(400F, -380f), Quaternion.identity);
             _instance.transform.SetParent(playerUnitInformationHUD.transform, false);
         }
 
