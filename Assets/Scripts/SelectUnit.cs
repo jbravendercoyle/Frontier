@@ -44,8 +44,6 @@ public class SelectUnit : MonoBehaviour
 
             this.actionsMenu.SetActive(true);
 
-            this.currentUnit.GetComponent<PlayerUnitAction>().updateHUD();
-
             HUDneedsflashing = true;
         }
     } 
@@ -70,14 +68,13 @@ public class SelectUnit : MonoBehaviour
     }
 
     void Update()
-
-    {
-        allUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
-        if (!onetime)
-        {
-            CreateFrames();
-            onetime = true;
-        }
+	{
+		allUnits = GameObject.FindGameObjectsWithTag ("PlayerUnit");
+		if (!onetime) {
+			CreateFrames ();
+			onetime = true;
+		}
+	
         if (HUDneedsflashing == true)
             {
             flashHUD();
@@ -96,19 +93,18 @@ public class SelectUnit : MonoBehaviour
     }
 
         void flashHUD()
-        {
-        foreach (GameObject unit in allUnits)
-        {
-            if (unit != currentUnit)
-            {
-                unit.GetComponent<PlayerUnitAction>().resetHUD();
-                HUDneedsflashing = false;
-            }
-        }
-        }
-
-
-
+	{
+		foreach (GameObject unit in allUnits) {
+			if (unit != currentUnit) {
+				unit.GetComponent<PlayerUnitAction> ().resetHUD ();
+				HUDneedsflashing = false;
+			}
+			if (unit == currentUnit) { 
+				this.currentUnit.GetComponent<PlayerUnitAction> ().updateHUD ();
+				this.actionsMenu.SetActive(true);
+			}
+		} 
+	}
 
 
     private void OnDisable()
