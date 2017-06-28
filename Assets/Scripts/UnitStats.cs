@@ -31,13 +31,11 @@ public class UnitStats : MonoBehaviour, IComparable {
 
 	private bool dead = false;
 
-    private bool needToLevel;
     public float level;
     public float currentExperience;
 
 	void Start() {
         level = 1;
-        needToLevel = false;
 	}
 
     void Update()

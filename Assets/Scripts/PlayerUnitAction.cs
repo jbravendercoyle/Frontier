@@ -8,7 +8,7 @@ public class PlayerUnitAction : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject physicalAttack;
+    public GameObject physicalAttack;
 
     [SerializeField]
     private GameObject magicalAttack;
