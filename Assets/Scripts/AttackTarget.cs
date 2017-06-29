@@ -19,6 +19,10 @@ public class AttackTarget : MonoBehaviour {
 	private Vector3 pos1;
 	private Vector3 pos2;
 
+	private Quaternion Qpos1;
+	private Quaternion Qpos2;
+
+
 	[SerializeField]
 	private string attackAnimation;
 
@@ -54,6 +58,9 @@ public class AttackTarget : MonoBehaviour {
 		//random move stuff
 		pos1 = owner.transform.position;
 		pos2 = target.transform.position - new Vector3 (-7, 0, 0);
+
+		Qpos1 = owner.transform.rotation;
+		Qpos2 = target.transform.rotation;
 		//
 
 		UnitStats ownerStats = this.owner.GetComponent<UnitStats> ();
@@ -77,6 +84,11 @@ public class AttackTarget : MonoBehaviour {
 				SickleChild = this.owner.transform.GetChild (0);
 				SickleChild.gameObject.SetActive (true);
 				sicklePos1 = SickleChild.transform.position;
+
+				//Vector3 direction = pos2 - pos1;
+				//float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
+				//SickleChild.transform.rotation = Quaternion.AngleAxis(angle, pos2);
+
 				StartCoroutine (Flyer (sicklePos1, pos2, 0.4f));
 				SickleChild.GetComponent<Animator> ().Play (animatorForFlyingSickle);
 			}
@@ -113,17 +125,20 @@ public class AttackTarget : MonoBehaviour {
 
 	IEnumerator Flyer(Vector3 pos1, Vector3 pos2, float overTime)
 	{
+
+
 		float startTime = Time.time;
 		while(Time.time < startTime + overTime)
-		{
-			SickleChild.transform.position = Vector3.Lerp (pos1, pos2, (Time.time - startTime)/overTime);
-			//SickleChild.transform.localScale = Vector3.Lerp (pos1, pos2, (Time.time - startTime)/overTime);
+		{			
+			SickleChild.transform.position = Vector3.Lerp(SickleChild.transform.position, pos2, Mathf.SmoothStep(0.1f, 1.0f, 2.0f * Time.deltaTime));
 
+			yield return new WaitForSeconds (0.2f);
 			yield return null;
 		} 
-		SickleChild.transform.position = Vector3.Lerp (pos2, pos1, (Time.time - startTime)/overTime);
+		SickleChild.gameObject.SetActive (false);
 		//SickleChild.transform.localScale = Vector3.Lerp (pos2, pos1, (Time.time - startTime)/overTime);
 
-		SickleChild.gameObject.SetActive (false);
+
 	}
+
 }
