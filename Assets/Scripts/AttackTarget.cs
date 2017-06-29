@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class AttackTarget : MonoBehaviour {
 
@@ -7,6 +8,12 @@ public class AttackTarget : MonoBehaviour {
 
 	public GameObject attackAnimator;
 	private GameObject _attackInstance;
+
+
+	//For Sickle
+	private Transform SickleChild;
+	private Vector3 sicklePos1;
+
 
 	//moving unit testing
 	private Vector3 pos1;
@@ -19,7 +26,13 @@ public class AttackTarget : MonoBehaviour {
 	private string attackAnimatorAnimation;
 
 	[SerializeField]
+	private string animatorForFlyingSickle;
+
+	[SerializeField]
 	private bool MPAttack;
+
+	[SerializeField]
+	public bool FlyingSickle;
 
 	[SerializeField]
 	private float MPCost;
@@ -52,9 +65,21 @@ public class AttackTarget : MonoBehaviour {
 			float defenseMultiplier = (Random.value * (this.maxDefenseMultiplier - this.minDefenseMultiplier)) + this.minDefenseMultiplier;
 			damage = Mathf.Max(0, damage - (defenseMultiplier * targetStats.defense));
 
-		    //move attacker to target then back
-			//owner.transform.position = Vector3.Lerp (pos1, pos2, 1);
-			StartCoroutine (Attacker(pos1, pos2, 0.4f));
+			if (!FlyingSickle) {
+				//move attacker to target then back
+				//owner.transform.position = Vector3.Lerp (pos1, pos2, 1);
+				StartCoroutine (Attacker (pos1, pos2, 0.4f));
+
+			}
+
+			//Animates a flying sickle
+			if (FlyingSickle == true) {
+				SickleChild = this.owner.transform.GetChild (0);
+				SickleChild.gameObject.SetActive (true);
+				sicklePos1 = SickleChild.transform.position;
+				StartCoroutine (Flyer (sicklePos1, pos2, 0.4f));
+				SickleChild.GetComponent<Animator> ().Play (animatorForFlyingSickle);
+			}
 
 			//play owners animation 
 			this.owner.GetComponent<Animator> ().Play (this.attackAnimation);
@@ -85,4 +110,20 @@ public class AttackTarget : MonoBehaviour {
 
 
 }
+
+	IEnumerator Flyer(Vector3 pos1, Vector3 pos2, float overTime)
+	{
+		float startTime = Time.time;
+		while(Time.time < startTime + overTime)
+		{
+			SickleChild.transform.position = Vector3.Lerp (pos1, pos2, (Time.time - startTime)/overTime);
+			//SickleChild.transform.localScale = Vector3.Lerp (pos1, pos2, (Time.time - startTime)/overTime);
+
+			yield return null;
+		} 
+		SickleChild.transform.position = Vector3.Lerp (pos2, pos1, (Time.time - startTime)/overTime);
+		//SickleChild.transform.localScale = Vector3.Lerp (pos2, pos1, (Time.time - startTime)/overTime);
+
+		SickleChild.gameObject.SetActive (false);
+	}
 }

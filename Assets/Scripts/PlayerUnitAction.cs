@@ -33,6 +33,7 @@ public class PlayerUnitAction : MonoBehaviour
         this.physicalAttack = Instantiate(this.physicalAttack, this.transform) as GameObject;
         this.magicalAttack = Instantiate(this.magicalAttack, this.transform) as GameObject;
 
+
         this.physicalAttack.GetComponent<AttackTarget>().owner = this.gameObject;
         this.magicalAttack.GetComponent<AttackTarget>().owner = this.gameObject;
 
