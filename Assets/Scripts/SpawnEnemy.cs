@@ -21,11 +21,11 @@ public class SpawnEnemy : MonoBehaviour {
 				Instantiate (enemyEncounterPrefab);
 			}
 			SceneManager.sceneLoaded -= OnSceneLoaded;
-			Destroy (this.gameObject);
+			//Destroy (this.gameObject);
 		}
 	}
 
-	void OnTriggerEnter(Collider other) {
+	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
 			this.spawning = true;
 			SceneManager.LoadScene ("Battle");

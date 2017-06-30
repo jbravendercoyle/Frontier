@@ -22,7 +22,7 @@ public class CharacterMenu : MonoBehaviour {
         {
             this.HUDCanvas.SetActive(true);
             MenuOpened = true;
-            PlayerControllerNEO component = this.gameObject.GetComponent<PlayerControllerNEO>();
+            PlayerMovement component = this.gameObject.GetComponent<PlayerMovement>();
             component.enabled = false;            
         }
 
@@ -30,7 +30,7 @@ public class CharacterMenu : MonoBehaviour {
         {
             this.HUDCanvas.SetActive(false);
             MenuOpened = false;
-            PlayerControllerNEO component = this.gameObject.GetComponent<PlayerControllerNEO>();
+			PlayerMovement component = this.gameObject.GetComponent<PlayerMovement>();
             component.enabled = true;
         } 
 
