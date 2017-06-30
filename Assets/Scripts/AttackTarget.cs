@@ -72,7 +72,7 @@ public class AttackTarget : MonoBehaviour {
 			float defenseMultiplier = (Random.value * (this.maxDefenseMultiplier - this.minDefenseMultiplier)) + this.minDefenseMultiplier;
 			damage = Mathf.Max(0, damage - (defenseMultiplier * targetStats.defense));
 
-			if (!FlyingSickle) {
+			if (!FlyingSickle & !MPAttack) {
 				//move attacker to target then back
 				//owner.transform.position = Vector3.Lerp (pos1, pos2, 1);
 				StartCoroutine (Attacker (pos1, pos2, 0.4f));
