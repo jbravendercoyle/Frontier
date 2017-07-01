@@ -11,6 +11,9 @@ public class UnitStats : MonoBehaviour, IComparable {
     [SerializeField]
     private GameObject damageTextPrefab;
 
+	[SerializeField]
+	private GameObject healTextPrefab;
+
     [SerializeField]
     private Vector2 damageTextPosition;
 
@@ -66,6 +69,20 @@ public class UnitStats : MonoBehaviour, IComparable {
 			this.gameObject.tag = "DeadUnit";
 			Destroy (this.gameObject);
 		}
+	}
+
+	//for healing
+	public void healDamage(float heal) {
+
+		this.HP += heal;
+
+		GameObject HUDCanvas = GameObject.Find ("HUDCanvas");
+		GameObject healText = Instantiate (this.healTextPrefab, HUDCanvas.transform) as GameObject;
+		healText.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 5);
+		healText.GetComponent<Text> ().text = "" + heal.ToString("N0");
+		healText.transform.localPosition = this.damageTextPosition;
+		healText.transform.localScale = new Vector2 (1.0f, 1.0f);
+
 	}
 
 	public void calculateNextActTurn(int currentTurn) {

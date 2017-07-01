@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class CharacterMenu : MonoBehaviour {
@@ -23,7 +24,8 @@ public class CharacterMenu : MonoBehaviour {
             this.HUDCanvas.SetActive(true);
             MenuOpened = true;
             PlayerMovement component = this.gameObject.GetComponent<PlayerMovement>();
-            component.enabled = false;            
+            component.enabled = false;        
+			EventSystem.current.SetSelectedGameObject (this.HUDCanvas.transform.GetChild (3).transform.GetChild (0).gameObject);
         }
 
         if (Input.GetButton("Cancel") && (MenuOpened == true))

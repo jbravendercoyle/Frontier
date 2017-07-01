@@ -19,8 +19,6 @@ public class AttackTarget : MonoBehaviour {
 	private Vector3 pos1;
 	private Vector3 pos2;
 
-	private Quaternion Qpos1;
-	private Quaternion Qpos2;
 
 
 	[SerializeField]
@@ -59,8 +57,6 @@ public class AttackTarget : MonoBehaviour {
 		pos1 = owner.transform.position;
 		pos2 = target.transform.position - new Vector3 (-7, 0, 0);
 
-		Qpos1 = owner.transform.rotation;
-		Qpos2 = target.transform.rotation;
 		//
 
 		UnitStats ownerStats = this.owner.GetComponent<UnitStats> ();
