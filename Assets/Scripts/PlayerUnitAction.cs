@@ -23,6 +23,7 @@ public class PlayerUnitAction : MonoBehaviour
     int frameSpacer;  
 
     private GameObject currentAttack;
+	public  GameObject currentItem;
 
     GameObject playerUnitInformationHUD;
 
@@ -45,11 +46,22 @@ public class PlayerUnitAction : MonoBehaviour
         this.currentAttack = (physical) ? this.physicalAttack : this.magicalAttack;
     }
 
+	//called by SelectUnit
+	public void selectItem(GameObject Item)
+	{
+		this.currentItem = Item;
+	}
     public void act(GameObject target)
     {
         this.currentAttack.GetComponent<AttackTarget>().hit(target);
-    }
+    } 
 
+	//put item version of act here
+	//called by Select Unit / action Player Target, adter you've clicked on a Player Target.
+	public void actionOnPlayerTarget(GameObject target)
+	{
+		this.currentItem.GetComponent<HealTarget> ().healTarget (target);
+	}
 
     public void createFrames ()
 	{

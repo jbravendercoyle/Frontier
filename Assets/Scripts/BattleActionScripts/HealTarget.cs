@@ -8,7 +8,7 @@ public class HealTarget : MonoBehaviour {
 	public GameObject healAnimator; //Healing Animation
 	private GameObject _healInstance; //Instantiate HealAnimation
 
-	public float HealValue; //How much does this heal heal
+	private float HealValue; //How much does this heal heal
 
 	[SerializeField]
 	private string healAnimation; //Specify Healing animation string for PlayerUnit
@@ -23,6 +23,9 @@ public class HealTarget : MonoBehaviour {
 	private float MPCost; //how much magic does this heal move cost, MP-wise.
 
 	public void healTarget(GameObject target){
+
+		owner = target;
+
 		UnitStats ownerStats = this.owner.GetComponent<UnitStats> ();
 		UnitStats targetStats = target.GetComponent<UnitStats> ();
 		if (ownerStats.MP >= this.MPCost) {
