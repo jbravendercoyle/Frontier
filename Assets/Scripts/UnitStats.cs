@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public class UnitStats : MonoBehaviour, IComparable {
 
@@ -17,7 +18,8 @@ public class UnitStats : MonoBehaviour, IComparable {
     [SerializeField]
     private Vector2 damageTextPosition;
 
-    
+	private float statIncreaser;
+
        public float maxHP;
        public float HP;
        public float maxMP;
@@ -96,18 +98,68 @@ public class UnitStats : MonoBehaviour, IComparable {
 		return this.dead;
 	}
 
-    public void levelUP()
-    {
-        if (currentExperience >= 0 && currentExperience <= 100 && level != 1)
-        {
-            level = 1;
-        }
-        else if (currentExperience >= 101 && currentExperience <= 500 && level != 2)
-        {
-            level = 2;
-        }
-}
 	public void receiveExperience(float experience) {
 		this.currentExperience += experience;
 	}
-}
+
+    public void levelUP()
+	{
+		if (currentExperience >= 0 && currentExperience <= 100 && level != 1) {
+			level = 1;
+		}
+		if (currentExperience >= 101 && currentExperience <= 500 && level != 2) {
+			level = 2;
+			statIncreaser = Random.Range (8, 10);
+			maxHP += statIncreaser;
+
+			statIncreaser = Random.Range (2, 3);
+			magic += statIncreaser;
+
+			statIncreaser = Random.Range (3, 4);
+			attack += statIncreaser;
+
+			statIncreaser = Random.Range (2, 3);
+			defense += statIncreaser;
+
+			statIncreaser = Random.Range (3, 4);
+			speed += statIncreaser;
+		}
+
+		if (currentExperience >= 501 && currentExperience <= 1000 && level != 3) {
+			level = 3;
+			statIncreaser = Random.Range (8, 10);
+			maxHP += statIncreaser;
+
+			statIncreaser = Random.Range (2, 3);
+			magic += statIncreaser;
+
+			statIncreaser = Random.Range (3, 4);
+			attack += statIncreaser;
+
+			statIncreaser = Random.Range (2, 3);
+			defense += statIncreaser;
+
+			statIncreaser = Random.Range (3, 4);
+			speed += statIncreaser;
+		} 
+		if (currentExperience >= 1001 && currentExperience <= 2000 && level != 4) {
+			level = 4;
+			statIncreaser = Random.Range (8, 10);
+			maxHP += statIncreaser;
+
+			statIncreaser = Random.Range (2, 3);
+			magic += statIncreaser;
+
+			statIncreaser = Random.Range (3, 4);
+			attack += statIncreaser;
+
+			statIncreaser = Random.Range (2, 3);
+			defense += statIncreaser;
+
+			statIncreaser = Random.Range (3, 4);
+			speed += statIncreaser;
+		}
+
+	}
+	}
+	
