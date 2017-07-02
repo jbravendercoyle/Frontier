@@ -9,7 +9,7 @@ public class InventoryPanel : MonoBehaviour {
 
 
 	string ItemName;
-	int quantity;
+	float quantity;
 
 	private GameObject Inventory;
 	private Transform Item1;//Item 1

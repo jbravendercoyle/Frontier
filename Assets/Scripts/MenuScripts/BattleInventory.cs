@@ -9,7 +9,7 @@ public class BattleInventory: MonoBehaviour {
 
 	//Gets the Playerparty Inventory for Battle
 		string ItemName;
-		int quantity;
+	    float quantity;
 
 		private GameObject Inventory;
 		private Transform Item1;//Item 1
@@ -28,13 +28,23 @@ public class BattleInventory: MonoBehaviour {
 		//Get Items in Inventory
 		//get First Item
 		ItemName = Inventory.transform.GetChild(0).gameObject.GetComponent<Potion>().ItemName;
-		quantity = Inventory.transform.GetChild(0).gameObject.GetComponent<Potion>().quantity;
+
 
 		//Set Info in Battle Inventory
 		//this.gameObject.transform.GetChild(0) = ItemSlot1 in battle Item Menu
 		Item1 = this.gameObject.transform.GetChild(0).gameObject.transform;
-		Item1.GetComponent<Text>().text = (ItemName + " " +quantity);
+
 		Item1GameObject = Inventory.transform.GetChild(0).gameObject;
 
 		}
-	}
+		
+	void Update(){
+		quantity = Inventory.transform.GetChild(0).gameObject.GetComponent<Potion>().quantity;
+		Item1.GetComponent<Text>().text = (ItemName + " " +quantity);
+		if (quantity == null) 
+		{
+			this.gameObject.GetComponent<BattleInventory> ().enabled = false;
+
+		}
+}
+}

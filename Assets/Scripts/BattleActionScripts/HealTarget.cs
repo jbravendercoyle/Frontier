@@ -30,6 +30,7 @@ public class HealTarget : MonoBehaviour {
 		UnitStats targetStats = target.GetComponent<UnitStats> ();
 		if (ownerStats.MP >= this.MPCost) {
 
+			//this Game Object is Potion for now, but it could be any healing item or spell in the future.
 			HealValue = this.gameObject.GetComponent<Potion>().healValue;
 
 			this.owner.GetComponent<Animator> ().Play (this.healAnimation);

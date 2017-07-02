@@ -5,7 +5,7 @@ using UnityEngine;
 public class Potion : MonoBehaviour {
 
 	public string ItemName;
-	public int quantity;
+	public float quantity;
 
 	public float healValue;
 
@@ -16,10 +16,15 @@ public class Potion : MonoBehaviour {
 		ItemName = "Potion";
 		healValue = 50f;
 		description = "A Fast-Acting Health Potion. Heals you up real good. (For 50HP)";
+		Mathf.Clamp (quantity, 0, 99);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		if (quantity == 0)
+		{
+			
+		}
 	}
 }
