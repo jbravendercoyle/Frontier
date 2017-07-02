@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BattleEventSystem : MonoBehaviour {
 
-	private GameObject HighlightCommands;
+	public static GameObject HighlightCommands;
 	private bool waitingToSelect;
 
 	// Use this for initialization
