@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class InventoryPanel : MonoBehaviour {
 
+	//Gets the PlayerParty Inventory for the field menu screen.
+
+
 	string ItemName;
 	int quantity;
 
@@ -23,7 +26,7 @@ public class InventoryPanel : MonoBehaviour {
 
 		//Get Items in Inventory
 		ItemName = Inventory.transform.GetChild(0).gameObject.GetComponent<Potion>().ItemName;
-		quantity = Inventory.transform.GetChild (0).gameObject.GetComponent<Potion> ().quantity;
+		quantity = Inventory.transform.GetChild (0).gameObject.GetComponent<Potion>().quantity;
 
 		//Set Info in Inventory
 		Item1 = this.gameObject.transform.GetChild(0).gameObject.transform;

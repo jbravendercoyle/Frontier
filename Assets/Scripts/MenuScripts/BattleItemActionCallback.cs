@@ -18,17 +18,23 @@ public class BattleItemActionCallback : MonoBehaviour {
 	// Update is called once per frame
 		private void addCallback() {
 
-		HUDCanvas = GameObject.Find ("HUDCanvas");
-		HUDCanvas = HUDCanvas.transform.GetChild (0).GetChild (3).transform.GetChild (0).gameObject;
+		HUDCanvas = GameObject.Find ("HUDCanvas"); //Get HUDCanvas
+		HUDCanvas = HUDCanvas.transform.GetChild (0).GetChild (3).transform.GetChild (0).gameObject; //Get "Panel" in ActionsMenu/ItemAction
+		HUDCanvas.SetActive (true); //Open Battle Item Panel
+		EventSystem.current.SetSelectedGameObject (HUDCanvas.transform.GetChild(0).gameObject); //Set the first Item as the highlighted button
 
-		HUDCanvas.SetActive (true);
 		HUDopen = true;
 		}
 		
 
 	void Update()
 	{
-		//OpenCloseItemPanel ();
+		if (HUDopen && Input.GetButton("Cancel"))
+			{
+			HUDCanvas.SetActive (false);
+			HUDopen = false;
+			EventSystem.current.SetSelectedGameObject(BattleEventSystem.HighlightCommands.transform.GetChild(0).transform.GetChild (0).gameObject);
+			}
 	}
 		
 }
