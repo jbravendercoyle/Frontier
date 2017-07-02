@@ -7,7 +7,7 @@ public class Potion : MonoBehaviour {
 	public string ItemName;
 	public int quantity;
 
-	private float healValue;
+	public float healValue;
 
 	private string description;
 

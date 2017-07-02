@@ -40,8 +40,6 @@ public class PlayerUnitAction : MonoBehaviour
         this.currentAttack = this.physicalAttack;
     }
 
-
-
     public void selectAttack(bool physical)
     {
         this.currentAttack = (physical) ? this.physicalAttack : this.magicalAttack;
