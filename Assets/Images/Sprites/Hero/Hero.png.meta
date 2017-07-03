@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a194ad28ec20c5640bb0325342017754
-timeCreated: 1499105969
+timeCreated: 1499108093
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -78,10 +78,10 @@ TextureImporter:
       name: Hero_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 528
-        width: 300
-        height: 382
+        x: 78
+        y: 535
+        width: 231
+        height: 375
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -91,10 +91,10 @@ TextureImporter:
       name: Hero_1
       rect:
         serializedVersion: 2
-        x: 392
-        y: 530
-        width: 275
-        height: 400
+        x: 422
+        y: 536
+        width: 231
+        height: 375
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,10 +104,10 @@ TextureImporter:
       name: Hero_2
       rect:
         serializedVersion: 2
-        x: 705
-        y: 537
-        width: 249
-        height: 377
+        x: 749
+        y: 536
+        width: 231
+        height: 375
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
