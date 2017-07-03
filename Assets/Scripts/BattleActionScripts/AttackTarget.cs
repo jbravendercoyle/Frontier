@@ -12,12 +12,12 @@ public class AttackTarget : MonoBehaviour {
 
 	//For Sickle
 	private Transform SickleChild;
-	private Vector2 sicklePos1;
+	private Vector3 sicklePos1;
 
 
 	//moving unit testing
-	private Vector2 pos1;
-	private Vector2 pos2;
+	private Vector3 pos1;
+	private Vector3 pos2;
 
 
 
@@ -106,27 +106,27 @@ public class AttackTarget : MonoBehaviour {
 		} 
 	}
 		
-		IEnumerator Attacker(Vector2 pos1, Vector2 pos2, float overTime)
+		IEnumerator Attacker(Vector3 pos1, Vector3 pos2, float overTime)
 		{
 			float startTime = Time.time;
 			while(Time.time < startTime + overTime)
 			{
-				owner.transform.position = Vector2.Lerp (pos1, pos2, (Time.time - startTime)/overTime);
+				owner.transform.position = Vector3.Lerp (pos1, pos2, (Time.time - startTime)/overTime);
 				yield return null;
 	} 
-		owner.transform.position = Vector2.Lerp (pos2, pos1, (Time.time - startTime)/overTime);
+		owner.transform.position = Vector3.Lerp (pos2, pos1, (Time.time - startTime)/overTime);
 
 
 }
 
-	IEnumerator Flyer(Vector2 pos1, Vector2 pos2, float overTime)
+	IEnumerator Flyer(Vector3 pos1, Vector3 pos2, float overTime)
 	{
 
 
 		float startTime = Time.time;
 		while(Time.time < startTime + overTime)
 		{			
-			SickleChild.transform.position = Vector2.Lerp(SickleChild.transform.position, pos2, Mathf.SmoothStep(0.1f, 1.0f, 2.0f * Time.deltaTime));
+			SickleChild.transform.position = Vector3.Lerp(SickleChild.transform.position, pos2, Mathf.SmoothStep(0.1f, 1.0f, 2.0f * Time.deltaTime));
 
 			yield return new WaitForSeconds (0.2f);
 			yield return null;
