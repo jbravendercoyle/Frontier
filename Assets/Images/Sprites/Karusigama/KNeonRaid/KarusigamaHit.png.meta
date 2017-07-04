@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 610e6f954b08e2946a7016034aff189d
-timeCreated: 1499167426
+guid: f4776ab5a64661443b1a19a0a68234f2
+timeCreated: 1499167656
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: KWeaponThrowNeonRaid_0
-    21300002: KWeaponThrowNeonRaid_1
+    21300000: KarusigamaHit_0
+    21300002: KarusigamaHit_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -72,28 +72,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KWeaponThrowNeonRaid_0
+      name: KarusigamaHit_0
       rect:
         serializedVersion: 2
-        x: 1170
-        y: 632
-        width: 378
-        height: 373
-      alignment: 9
-      pivot: {x: 0.38546845, y: 0.5060408}
+        x: 385
+        y: 186
+        width: 266
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: KWeaponThrowNeonRaid_1
+      name: KarusigamaHit_1
       rect:
         serializedVersion: 2
-        x: 1243
-        y: 176
-        width: 378
-        height: 373
-      alignment: 9
-      pivot: {x: 0.23271576, y: 0.46499854}
+        x: 757
+        y: 184
+        width: 266
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

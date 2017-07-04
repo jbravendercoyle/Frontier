@@ -141,7 +141,8 @@ public class SelectUnit : MonoBehaviour
 		PartyTarget1Button.interactable = true;
 		PartyTarget2Button.interactable = true;
 		//Sets the controller to hover over the first frame in the list.
-		//EventSystem.current.SetSelectedGameObject(PartyTarget1);
+		EventSystem.current.SetSelectedGameObject (null);
+		EventSystem.current.SetSelectedGameObject (GetFrame1);
 	}
 
     private void OnDisable()

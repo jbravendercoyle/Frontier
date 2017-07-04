@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 15899b3f6cbe20342a48082671238924
-timeCreated: 1498741435
+guid: c786c6ceb36b83e49bba63fb0d6eb467
+timeCreated: 1499167347
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -79,12 +79,12 @@ TextureImporter:
       name: Sickle_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 138
-        width: 57
-        height: 52
+        x: 2999
+        y: 101
+        width: 714
+        height: 691
       alignment: 9
-      pivot: {x: 0.9856368, y: 0.015517895}
+      pivot: {x: 0.99216324, y: 0.012912612}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -92,12 +92,12 @@ TextureImporter:
       name: Sickle_1
       rect:
         serializedVersion: 2
-        x: 103
-        y: 121
-        width: 81
-        height: 76
+        x: 2198
+        y: 105
+        width: 714
+        height: 691
       alignment: 9
-      pivot: {x: 0.9857374, y: 0.012999484}
+      pivot: {x: 0.87379503, y: 0.13092929}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -105,12 +105,12 @@ TextureImporter:
       name: Sickle_2
       rect:
         serializedVersion: 2
-        x: 235
-        y: 107
-        width: 95
-        height: 90
+        x: 1474
+        y: 99
+        width: 714
+        height: 691
       alignment: 9
-      pivot: {x: 0.99109274, y: 0.012726678}
+      pivot: {x: 0.7159706, y: 0.30259004}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -118,12 +118,12 @@ TextureImporter:
       name: Sickle_3
       rect:
         serializedVersion: 2
-        x: 370
-        y: 77
-        width: 126
-        height: 121
+        x: 755
+        y: 98
+        width: 714
+        height: 691
       alignment: 9
-      pivot: {x: 0.9936913, y: 0.0071322857}
+      pivot: {x: 0.78865284, y: 0.4828338}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -131,12 +131,12 @@ TextureImporter:
       name: Sickle_4
       rect:
         serializedVersion: 2
-        x: 550
-        y: 48
-        width: 156
-        height: 151
+        x: 393
+        y: 449
+        width: 351
+        height: 342
       alignment: 9
-      pivot: {x: 0.9930275, y: 0.0087227225}
+      pivot: {x: 0.9618483, y: 0.13166319}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -144,12 +144,12 @@ TextureImporter:
       name: Sickle_5
       rect:
         serializedVersion: 2
-        x: 750
-        y: 25
-        width: 178
-        height: 173
+        x: 16
+        y: 516
+        width: 277
+        height: 256
       alignment: 9
-      pivot: {x: 0.99744195, y: 0.0024981664}
+      pivot: {x: 0.84793127, y: 0.17565489}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

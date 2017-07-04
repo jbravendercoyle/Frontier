@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: a62fb27d16095694a94946f60cb6a456
-timeCreated: 1498825517
+timeCreated: 1499162441
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: HeroCast_0
     21300002: HeroCast_1
+    21300004: HeroCast_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -75,10 +76,10 @@ TextureImporter:
       name: HeroCast_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 14
-        width: 70
-        height: 93
+        x: 72
+        y: 54
+        width: 237
+        height: 375
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -88,10 +89,23 @@ TextureImporter:
       name: HeroCast_1
       rect:
         serializedVersion: 2
-        x: 106
-        y: 14
-        width: 70
-        height: 93
+        x: 415
+        y: 56
+        width: 237
+        height: 375
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HeroCast_2
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 55
+        width: 237
+        height: 375
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

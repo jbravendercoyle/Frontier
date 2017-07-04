@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 1a786f4ee486a464c83bdc08ece7cbc1
-timeCreated: 1499101848
+timeCreated: 1499163214
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: HeroHitDark_0
     21300002: HeroHitDark_1
+    21300004: HeroHitDark_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -75,25 +76,25 @@ TextureImporter:
       name: HeroHitDark_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 134
-        width: 64
-        height: 92
+        x: 114
+        y: 535
+        width: 270
+        height: 376
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: HeroHitDark_1
+      name: HeroHitDark_2
       rect:
         serializedVersion: 2
-        x: 119
-        y: 134
-        width: 64
-        height: 92
+        x: 474
+        y: 535
+        width: 270
+        height: 376
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
