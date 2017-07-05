@@ -8,6 +8,8 @@ public class AttackTarget : MonoBehaviour {
 
 	public GameObject attackAnimator;
 	private GameObject _attackInstance;
+	public GameObject ParticleEffect;
+	private GameObject _ParticleInstance;
 
 
 	//For Sickle
@@ -72,7 +74,12 @@ public class AttackTarget : MonoBehaviour {
 				//move attacker to target then back
 				//owner.transform.position = Vector3.Lerp (pos1, pos2, 1);
 				StartCoroutine (Attacker (pos1, pos2, 0.4f));
-
+				//play attack on enemy
+				_attackInstance = Instantiate(this.attackAnimator, target.gameObject.transform);
+				//_attackInstance.transform.SetParent(target.gameObject.transform);
+				_attackInstance.GetComponent<Animator> ().Play (this.attackAnimatorAnimation);
+				//Destroy(_attackInstance);
+				DestroyObject(_attackInstance);
 			}
 
 			//Animates a flying sickle
@@ -87,17 +94,24 @@ public class AttackTarget : MonoBehaviour {
 
 				StartCoroutine (Flyer (sicklePos1, pos2, 0.4f));
 				SickleChild.GetComponent<Animator> ().Play (animatorForFlyingSickle);
+			} 
+
+			//if its a magic attack, instantiate the particle effect on the enemy.
+			if (!FlyingSickle & MPAttack) {
+				StartCoroutine (ParticleAttack (sicklePos1, pos2, 0.4f, target));
+				_ParticleInstance = Instantiate (this.ParticleEffect, target.gameObject.transform);
+
+				ParticleSystem explode = _ParticleInstance.GetComponent<ParticleSystem>();
+
+				explode.Play();
+				Destroy(_ParticleInstance, explode.duration);
+
 			}
 
 			//play owners animation 
 			this.owner.GetComponent<Animator> ().Play (this.attackAnimation);
 
 
-			//play attack on enemy
-			_attackInstance = Instantiate(this.attackAnimator, target.gameObject.transform);
-			//_attackInstance.transform.SetParent(target.gameObject.transform);
-			_attackInstance.GetComponent<Animator> ().Play (this.attackAnimatorAnimation);
-			//Destroy(_attackInstance);
 
 
 			targetStats.receiveDamage (damage);
@@ -118,6 +132,21 @@ public class AttackTarget : MonoBehaviour {
 
 
 }
+
+	IEnumerator ParticleAttack(Vector3 pos1, Vector3 pos2, float overTime, GameObject target)
+	{ 
+		float startTime = Time.time;
+		while(Time.time < startTime + overTime)
+		{ 
+				ParticleEffect.transform.position = Vector3.Lerp (pos1, pos2, (Time.time - startTime) / overTime); 
+				target.gameObject.GetComponent<SpriteRenderer> ().color = (Color.red);
+				yield return null;
+
+		} 
+		ParticleEffect.transform.position = Vector3.Lerp (pos2, pos1, (Time.time - startTime)/overTime);
+		yield return new WaitForSeconds (1f);
+		target.gameObject.GetComponent<SpriteRenderer> ().color = (Color.white);
+	}
 
 	IEnumerator Flyer(Vector3 pos1, Vector3 pos2, float overTime)
 	{
