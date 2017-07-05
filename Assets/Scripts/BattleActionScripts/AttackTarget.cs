@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+//using UnityEngine;
 
 public class AttackTarget : MonoBehaviour {
 
@@ -38,8 +39,8 @@ public class AttackTarget : MonoBehaviour {
 	[SerializeField]
 	public bool FlyingSickle;
 
-	[SerializeField]
-	private float MPCost;
+	//[SerializeField]
+	//private float MPCost;
 
 	[SerializeField]
 	private float minAttackMultiplier;
@@ -63,7 +64,7 @@ public class AttackTarget : MonoBehaviour {
 
 		UnitStats ownerStats = this.owner.GetComponent<UnitStats> ();
 		UnitStats targetStats = target.GetComponent<UnitStats> ();
-		if (ownerStats.MP >= this.MPCost) {
+		if (ownerStats.MPArray[0] >= 1) {
 			float attackMultiplier = (Random.value * (this.maxAttackMultiplier - this.minAttackMultiplier)) + this.minAttackMultiplier;
 			float damage = (this.MPAttack) ? attackMultiplier * ownerStats.magic : attackMultiplier * ownerStats.attack;
 
@@ -115,8 +116,7 @@ public class AttackTarget : MonoBehaviour {
 
 
 			targetStats.receiveDamage (damage);
-
-			ownerStats.MP -= this.MPCost;
+			ownerStats.MPArray [0] -= -1;
 		} 
 	}
 		

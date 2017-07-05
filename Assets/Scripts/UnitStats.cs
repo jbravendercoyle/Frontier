@@ -22,8 +22,8 @@ public class UnitStats : MonoBehaviour, IComparable {
 
        public float maxHP;
        public float HP;
-       public float maxMP;
-       public float MP;
+	   public int []MPArray;
+	   public int[]MPArrayMax;
        
     
 
@@ -47,7 +47,16 @@ public class UnitStats : MonoBehaviour, IComparable {
     {
         //Makes it so that current health and mp cannot go above their max values
         HP = Mathf.Clamp(HP, 0, maxHP);
-        MP = Mathf.Clamp(MP, 0, maxMP);
+
+		//Set Magic Array
+		MPArray = new int[] { 1, 0, 0, 0 };       
+        
+		MPArrayMax = new int[] { 1, 0, 0, 0 };
+			
+		MPArrayMax[0] = Mathf.Clamp(MPArray[0], 0, MPArrayMax[0]);
+		MPArrayMax[1] = Mathf.Clamp(MPArray[1], 0, MPArrayMax[1]);
+		MPArrayMax[2] = Mathf.Clamp(MPArray[2], 0, MPArrayMax[2]);
+		MPArrayMax[3] = Mathf.Clamp(MPArray[3], 0, MPArrayMax[3]);
 
         levelUP();
     }
@@ -123,6 +132,8 @@ public class UnitStats : MonoBehaviour, IComparable {
 
 			statIncreaser = Random.Range (3, 4);
 			speed += statIncreaser;
+
+			//MPArray= new int[2,0,0,0];
 		}
 
 		if (currentExperience >= 501 && currentExperience <= 1000 && level != 3) {
@@ -141,7 +152,11 @@ public class UnitStats : MonoBehaviour, IComparable {
 
 			statIncreaser = Random.Range (3, 4);
 			speed += statIncreaser;
+
+			//MPArray= new int[2,1,0,0];
 		} 
+
+
 		if (currentExperience >= 1001 && currentExperience <= 2000 && level != 4) {
 			level = 4;
 			statIncreaser = Random.Range (8, 10);
@@ -158,7 +173,11 @@ public class UnitStats : MonoBehaviour, IComparable {
 
 			statIncreaser = Random.Range (3, 4);
 			speed += statIncreaser;
-		}
+
+			//MPArray= new int[3,1,0,0];
+		} 
+
+
 
 	}
 	}

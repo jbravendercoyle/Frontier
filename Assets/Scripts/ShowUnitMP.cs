@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShowUnitMP : ShowUnitStat {
+public class ShowUnitMP : ShowUnitStatMP {
 
-	override protected float newStatValue() {
-		return unit.GetComponent<UnitStats> ().MP;
+	override protected int []MPArrayValue() { 
+			return unit.GetComponent<UnitStats> ().MPArray;
 	}
-
-    override protected float maxStatValue()
+	override protected int []MPArrayNewValue()
     {
-        return unit.GetComponent<UnitStats>().maxMP;
-    }
+		return unit.GetComponent<UnitStats> ().MPArrayMax;  
+}
 }
