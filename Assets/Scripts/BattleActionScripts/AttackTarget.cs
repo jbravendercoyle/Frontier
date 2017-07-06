@@ -140,7 +140,7 @@ public class AttackTarget : MonoBehaviour {
 		{ 
 				ParticleEffect.transform.position = Vector3.Lerp (pos1, pos2, (Time.time - startTime) / overTime); 
 				target.gameObject.GetComponent<SpriteRenderer> ().color = (Color.red);
-				yield return null;
+			yield return null;
 
 		} 
 		ParticleEffect.transform.position = Vector3.Lerp (pos2, pos1, (Time.time - startTime)/overTime);

@@ -27,17 +27,19 @@ public class BattleInventory: MonoBehaviour {
 
 		//Get Items in Inventory
 		//get First Item
-		if (Item1 != null) {
+		if (Inventory.transform.GetChild (0).gameObject != null) {
 			ItemName = Inventory.transform.GetChild (0).gameObject.GetComponent<Potion> ().ItemName;
 			Item1 = this.gameObject.transform.GetChild (0).gameObject.transform;
 			Item1GameObject = Inventory.transform.GetChild (0).gameObject;
+			quantity = Inventory.transform.GetChild (0).gameObject.GetComponent<Potion> ().quantity;
 		}
 
 		}
 		
 	void Update(){
-		quantity = Inventory.transform.GetChild(0).gameObject.GetComponent<Potion>().quantity;
-		Item1.GetComponent<Text>().text = (ItemName + " " +quantity);
+
+		Item1.GetComponent<Text>().text = (ItemName + " " + quantity);
+
 		if (quantity == null) 
 		{
 			this.gameObject.GetComponent<BattleInventory> ().enabled = false;
