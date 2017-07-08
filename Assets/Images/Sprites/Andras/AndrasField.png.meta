@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ddf5d9b12cdd86145a6076e26c63bb1a
-timeCreated: 1499458328
+timeCreated: 1499537708
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,6 +16,12 @@ TextureImporter:
     21300018: AndrasField_9
     21300020: AndrasField_10
     21300022: AndrasField_11
+    21300024: AndrasField_12
+    21300026: AndrasField_13
+    21300028: AndrasField_14
+    21300030: AndrasField_15
+    21300032: AndrasField_16
+    21300034: AndrasField_17
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -232,6 +238,84 @@ TextureImporter:
         y: 832
         width: 74
         height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AndrasField_12
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 552
+        width: 120
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AndrasField_13
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 552
+        width: 120
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AndrasField_14
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 283
+        width: 153
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AndrasField_15
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 283
+        width: 153
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AndrasField_16
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 417
+        width: 22
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AndrasField_17
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 36
+        width: 120
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

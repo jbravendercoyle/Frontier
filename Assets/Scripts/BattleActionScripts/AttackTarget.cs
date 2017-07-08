@@ -155,7 +155,7 @@ public class AttackTarget : MonoBehaviour {
 		float startTime = Time.time;
 		while(Time.time < startTime + overTime)
 		{			
-			SickleChild.transform.position = Vector3.Lerp(SickleChild.transform.position, pos2, Mathf.SmoothStep(0.1f, 1.0f, 2.0f * Time.deltaTime));
+			SickleChild.transform.position = Vector3.Lerp (SickleChild.transform.position, pos2, Mathf.SmoothStep(0.1f, 1.0f, 0.2f * Time.deltaTime));
 
 			yield return new WaitForSeconds (0.2f);
 			yield return null;
