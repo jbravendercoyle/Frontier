@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: 6676352927ba4c54bae92599da2b9a53
-timeCreated: 1499548833
+timeCreated: 1499641690
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: HeroSprite_0
     21300002: HeroSprite_1
+    21300004: HeroSprite_2
+    21300006: HeroSprite_3
+    21300008: HeroSprite_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -90,6 +93,45 @@ TextureImporter:
         serializedVersion: 2
         x: 354
         y: 550
+        width: 166
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HeroSprite_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 279
+        width: 176
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HeroSprite_3
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 279
+        width: 166
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HeroSprite_4
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 279
         width: 166
         height: 228
       alignment: 0
