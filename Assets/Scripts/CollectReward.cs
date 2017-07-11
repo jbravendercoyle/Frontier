@@ -5,7 +5,9 @@ public class CollectReward : MonoBehaviour
 {
 
     [SerializeField]
-    private float experience;
+	private float experience;
+
+	public float experiencePerUnit;
 
     public void Start()
     {

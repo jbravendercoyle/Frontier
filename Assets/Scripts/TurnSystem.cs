@@ -11,8 +11,10 @@ public class TurnSystem : MonoBehaviour {
 
 	public GameObject enemyEncounter;
 
+	//find xp per unit in collect unit reward and store it
+
 	[SerializeField]
-	private GameObject actionsMenu, enemyUnitsMenu;
+	private GameObject actionsMenu, enemyUnitsMenu, levelUpMenu;
 
     void Start() {
 		this.playerParty = GameObject.Find ("PlayerParty");
@@ -40,14 +42,20 @@ public class TurnSystem : MonoBehaviour {
 
 	public void nextTurn() {
 		GameObject[] remainingEnemyUnits = GameObject.FindGameObjectsWithTag ("EnemyUnit");
+		//If Victory
 		if (remainingEnemyUnits.Length == 0) {
-			this.enemyEncounter.GetComponent<CollectReward> ().collectReward ();
+
+			this.actionsMenu.SetActive (false);
+			this.enemyUnitsMenu.SetActive (false);
+			StartCoroutine(LevelUpPanel(levelUpMenu));
 			SceneManager.LoadScene ("Main");
+
+
 		}
 
 		GameObject[] remainingPlayerUnits = GameObject.FindGameObjectsWithTag ("PlayerUnit");
 		if (remainingPlayerUnits.Length == 0) {
-			SceneManager.LoadScene("Title");
+			SceneManager.LoadScene ("Title");
 		}
 
 		UnitStats currentUnitStats = unitsStats [0];
@@ -62,13 +70,23 @@ public class TurnSystem : MonoBehaviour {
 
 			if (currentUnit.tag == "PlayerUnit") {
 				this.playerParty.GetComponent<SelectUnit> ().selectCurrentUnit (currentUnit.gameObject);
-                Debug.Log("Player unit acting");
-            } else {
-                Debug.Log("Enemy unit acting");
-                currentUnit.GetComponent<EnemyUnitAction> ().act ();
+				Debug.Log ("Player unit acting");
+			} else {
+				Debug.Log ("Enemy unit acting");
+				currentUnit.GetComponent<EnemyUnitAction> ().act ();
 			}
 		} else {
 			this.nextTurn ();
 		}
+
 	}
+
+	IEnumerator LevelUpPanel(GameObject panel1)
+		{
+		panel1.SetActive (true);
+
+		this.enemyEncounter.GetComponent<CollectReward> ().collectReward ();
+
+		yield return null;
+		}
 }
