@@ -17,6 +17,7 @@ public class SelectUnit : MonoBehaviour
 
 	public Button PartyTarget1Button;
 	public Button PartyTarget2Button;
+	public Button PartyTarget3Button;
 
     public GameObject[] allUnits;
 
@@ -86,8 +87,9 @@ public class SelectUnit : MonoBehaviour
 	{
 		PartyTarget1Button.interactable = false;
 		PartyTarget2Button.interactable = false;
+		PartyTarget3Button.interactable = false;
 
-		this.currentUnit.GetComponent<PlayerUnitAction> ().actionOnPlayerTarget (target);
+		this.currentUnit.GetComponent<PlayerUnitAction> ().actionOnPlayerTarget(target);
 	}
 
     void Update()
@@ -134,12 +136,20 @@ public class SelectUnit : MonoBehaviour
 		//gets Frame1 button PlayerUnitInformation Menu
 		GameObject GetFrame1 = BattleEventSystem.HighlightCommands.transform.GetChild(2).transform.GetChild(0).gameObject;
 		PartyTarget1Button = GetFrame1.gameObject.GetComponent<Button> ();
+
 		//Gets Frame2 Button in the PlayerUnitInformation Menu
 		GameObject GetFrame2 = BattleEventSystem.HighlightCommands.transform.GetChild (2).transform.GetChild (1).gameObject;
 		PartyTarget2Button = GetFrame2.gameObject.GetComponent<Button> (); 
+
+		//Gets Frame2 Button in the PlayerUnitInformation Menu
+		GameObject GetFrame3 = BattleEventSystem.HighlightCommands.transform.GetChild (2).transform.GetChild (2).gameObject;
+		PartyTarget3Button = GetFrame3.gameObject.GetComponent<Button> ();
+
 		//Sets the Players Unit Frames as Clickable
 		PartyTarget1Button.interactable = true;
 		PartyTarget2Button.interactable = true;
+		PartyTarget3Button.interactable = true;
+
 		//Sets the controller to hover over the first frame in the list.
 		EventSystem.current.SetSelectedGameObject (null);
 		EventSystem.current.SetSelectedGameObject (GetFrame1);

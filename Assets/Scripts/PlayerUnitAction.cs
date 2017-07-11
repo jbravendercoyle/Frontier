@@ -60,7 +60,7 @@ public class PlayerUnitAction : MonoBehaviour
 	//called by Select Unit / action Player Target, adter you've clicked on a Player Target.
 	public void actionOnPlayerTarget(GameObject target)
 	{
-		this.currentItem.GetComponent<HealTarget> ().healTarget (target);
+		this.currentItem.GetComponent<HealTarget>().healTarget (target);
 	}
 
     public void createFrames ()
