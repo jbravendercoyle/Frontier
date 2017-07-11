@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		float interpolation = speed * Time.deltaTime;
 
 		Vector3 position = this.transform.position;

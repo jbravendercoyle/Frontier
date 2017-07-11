@@ -7,8 +7,6 @@ public class CollectReward : MonoBehaviour
     [SerializeField]
 	private float experience;
 
-	public float experiencePerUnit;
-
     public void Start()
     {
         GameObject turnSystem = GameObject.Find("TurnSystem");
