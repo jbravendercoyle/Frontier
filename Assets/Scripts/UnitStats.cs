@@ -14,19 +14,8 @@ public class UnitStats : MonoBehaviour, IComparable {
     [SerializeField]
     private Vector2 damageTextPosition;
 
-    
-       public float maxHP;
-        public float HP;
-        public float maxLP;
-        public float LP;
-        public float maxSP;
-        public float SP;
-    
 
-	public float attack;
-	public float magic;
-	public float defense;
-	public float speed;  
+    public UnitStatistics thisUnit = new UnitStatistics();
 
 	public int nextActTurn;
 
@@ -41,27 +30,28 @@ public class UnitStats : MonoBehaviour, IComparable {
     void Update()
     {
         //Makes it so that current health, lp and sp cannot go above their max values
-        HP = Mathf.Clamp(HP, 0, maxHP);
-        LP = Mathf.Clamp(LP, 0, maxLP);
-        SP = Mathf.Clamp(SP, 0, maxSP);
+        thisUnit.HP = Mathf.Clamp(thisUnit.HP, 0, thisUnit.maxHP);
+        thisUnit.LP = Mathf.Clamp(thisUnit.LP, 0, thisUnit.maxLP);
+        thisUnit.WP = Mathf.Clamp(thisUnit.WP, 0, thisUnit.maxWP);
+        thisUnit.SP = Mathf.Clamp(thisUnit.SP, 0, thisUnit.maxSP);
     }
     public void receiveDamage(float damage) {
-		this.HP -= damage;
+        thisUnit.HP -= damage;
 		animator.Play ("Hit");
 
 		GameObject HUDCanvas = GameObject.Find ("HUDCanvas");
 		GameObject damageText = Instantiate (this.damageTextPrefab, HUDCanvas.transform) as GameObject;
-		damageText.GetComponent<Text> ().text = "" + damage;
+		damageText.GetComponent<Text> ().text = "" + damage.ToString("N0");
 		damageText.transform.localPosition = this.damageTextPosition;
 		damageText.transform.localScale = new Vector2 (1.0f, 1.0f);
 
-		if (this.HP <= 0) {
+		if (thisUnit.HP <= 0) {
 			this.dead = true;
 			this.gameObject.tag = "DeadUnit";
 			Destroy (this.gameObject);
 		}
 
-        if (this.LP <=0)
+        if (thisUnit.LP <=0)
         {
             this.dead = true;
             this.gameObject.tag = "DeadUnit";
@@ -70,7 +60,7 @@ public class UnitStats : MonoBehaviour, IComparable {
 	}
 
 	public void calculateNextActTurn(int currentTurn) {
-		this.nextActTurn = currentTurn + (int)Math.Ceiling(100.0f / this.speed);
+		this.nextActTurn = currentTurn + (int)Math.Ceiling(100.0f / thisUnit.speed);
 	}
 
 	public int CompareTo(object otherStats) {
